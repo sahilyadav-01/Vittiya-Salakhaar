@@ -1569,8 +1569,17 @@ footer.site-footer {
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 24px;
+  padding-bottom: 16px;
+  padding-right: 210px; /* Ensures clear space for floating consultation button */
   font-size: 13px;
-  color: #64748b;
+  color: #94a3b8;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-tagline-text {
+  color: #cbd5e1;
+  font-weight: 600;
 }
 
 /* Notice Alerts */
@@ -1635,6 +1644,8 @@ footer.site-footer {
     flex-direction: column;
     gap: 12px;
     text-align: center;
+    padding-right: 0;
+    padding-bottom: 75px;
   }
   .floating-widget-btn {
     bottom: 18px;

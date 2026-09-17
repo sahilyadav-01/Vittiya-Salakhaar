@@ -74,7 +74,7 @@ export default function Footer({ setActivePage, openConsultation }) {
         {/* Bottom Bar */}
         <div className="footer-bottom">
           <span>© 2026 Vittiya Salakhaar. All Rights Reserved.</span>
-          <span>Designed & Built with React & Vite for Indian Taxpayers & Businesses.</span>
+          <span className="footer-tagline-text">Empowering Indian Taxpayers, Freelancers, Startups & MSMEs.</span>
         </div>
       </div>
     </footer>
