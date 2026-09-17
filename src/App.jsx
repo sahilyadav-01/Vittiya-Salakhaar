@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import ConsultationModal from './components/ConsultationModal';
 import ArticleModal from './components/ArticleModal';
 import Toast from './components/Toast';
+import { PhoneCall } from 'lucide-react';
 
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
@@ -13,6 +14,7 @@ import AboutPricingPage from './pages/AboutPricingPage';
 
 export default function App() {
   const [activePage, setActivePage] = useState('home');
+  const [activeToolId, setActiveToolId] = useState('sip');
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const [consultationService, setConsultationService] = useState('Income Tax');
   const [selectedArticle, setSelectedArticle] = useState(null);
@@ -39,6 +41,11 @@ export default function App() {
     setActivePage(pageId);
     window.location.hash = pageId;
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const launchToolFromHome = (toolId) => {
+    setActiveToolId(toolId);
+    navigateToPage('tools');
   };
 
   const openConsultation = (serviceName = 'Income Tax') => {
@@ -68,7 +75,7 @@ export default function App() {
       <Header
         activePage={activePage}
         setActivePage={navigateToPage}
-        openConsultation={() => openConsultation('General Advisory')}
+        openConsultation={() => openConsultation('Header CTA')}
       />
 
       {/* Main Page Body View */}
@@ -77,6 +84,7 @@ export default function App() {
           <HomePage
             setActivePage={navigateToPage}
             openConsultation={openConsultation}
+            onLaunchTool={launchToolFromHome}
           />
         )}
 
@@ -89,6 +97,8 @@ export default function App() {
         {activePage === 'tools' && (
           <FinancialToolsPage
             openConsultation={openConsultation}
+            defaultToolId={activeToolId}
+            showToast={showToast}
           />
         )}
 
@@ -107,10 +117,20 @@ export default function App() {
         )}
       </main>
 
+      {/* Floating Quick Action Widget */}
+      <button
+        className="floating-widget-btn"
+        onClick={() => openConsultation('Floating Widget')}
+        aria-label="Book Quick Consultation"
+      >
+        <PhoneCall size={16} />
+        <span>Book Consultation</span>
+      </button>
+
       {/* Global Persistent Footer */}
       <Footer
         setActivePage={navigateToPage}
-        openConsultation={() => openConsultation('General Advisory')}
+        openConsultation={() => openConsultation('Footer CTA')}
       />
 
       {/* Modals & Toasts */}
