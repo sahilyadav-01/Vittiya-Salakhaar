@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, CheckCircle2, Calendar, Clock, ShieldCheck } from 'lucide-react';
+import { X, CheckCircle2, Calendar, Clock, ShieldCheck, Sparkles, User, Mail, Phone } from 'lucide-react';
 
 export default function ConsultationModal({ isOpen, onClose, initialService = 'Income Tax' }) {
   const [step, setStep] = useState(1);
@@ -35,11 +35,11 @@ export default function ConsultationModal({ isOpen, onClose, initialService = 'I
         {step === 1 ? (
           <div>
             <div className="eyebrow">
-              <Calendar size={13} /> Schedule A Discussion
+              <Sparkles size={13} /> Schedule A Confidential Discussion
             </div>
             <h2>Book a Consultation</h2>
-            <p className="lead" style={{ fontSize: '15px', marginBottom: '24px' }}>
-              Connect with our finance & tax specialists to evaluate your requirements and get practical guidance.
+            <p className="lead" style={{ fontSize: '14.5px', marginBottom: '24px', lineHeight: 1.5 }}>
+              Connect with our certified finance & tax specialists to evaluate your requirements and get actionable guidance.
             </p>
 
             <form onSubmit={handleSubmit}>
@@ -53,7 +53,7 @@ export default function ConsultationModal({ isOpen, onClose, initialService = 'I
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                   required
                 >
-                  <option value="Income Tax">Income Tax Filing & Planning</option>
+                  <option value="Income Tax">Income Tax Filing & Tax Planning</option>
                   <option value="GST">GST Registration & Compliance</option>
                   <option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option>
                   <option value="Payroll">Payroll Processing</option>
@@ -144,7 +144,7 @@ export default function ConsultationModal({ isOpen, onClose, initialService = 'I
                 <textarea
                   className="form-input"
                   rows={2}
-                  placeholder="Share any specific context or question"
+                  placeholder="Share any specific context or question for the advisor"
                   value={formData.note}
                   onChange={(e) => setFormData({ ...formData, note: e.target.value })}
                 />
@@ -152,7 +152,7 @@ export default function ConsultationModal({ isOpen, onClose, initialService = 'I
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '28px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px', color: 'var(--muted)' }}>
-                  <ShieldCheck size={16} color="var(--green)" /> Confidential & Direct
+                  <ShieldCheck size={16} color="var(--green)" /> 100% Confidential
                 </div>
                 <button type="submit" className="btn btn-gold">
                   Confirm Consultation Slot →
@@ -162,17 +162,27 @@ export default function ConsultationModal({ isOpen, onClose, initialService = 'I
           </div>
         ) : (
           <div style={{ textAlign: 'center', padding: '20px 10px' }}>
-            <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'var(--green-light)', color: 'var(--green)', display: 'grid', placeItems: 'center', margin: '0 auto 20px' }}>
-              <CheckCircle2 size={36} />
+            <div style={{
+              width: '68px',
+              height: '68px',
+              borderRadius: '50%',
+              background: 'var(--green-light)',
+              color: 'var(--green)',
+              display: 'grid',
+              placeItems: 'center',
+              margin: '0 auto 20px',
+              boxShadow: '0 4px 16px rgba(16, 185, 129, 0.2)'
+            }}>
+              <CheckCircle2 size={40} />
             </div>
-            <h2>Consultation Requested!</h2>
+            <h2>Consultation Confirmed!</h2>
             <p className="lead" style={{ margin: '12px auto 24px', fontSize: '15px' }}>
               Thank you, <strong>{formData.name}</strong>. Our finance advisor will contact you on <strong>{formData.phone}</strong> for your <strong>{formData.service}</strong> consultation scheduled for <strong>{formData.date}</strong> ({formData.slot}).
             </p>
-            <div style={{ background: 'var(--surface-alt)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)', padding: '16px', marginBottom: '24px', textAlign: 'left', fontSize: '13.5px' }}>
+            <div style={{ background: 'var(--surface-alt)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)', padding: '20px', marginBottom: '24px', textAlign: 'left', fontSize: '13.5px' }}>
               <div><strong>Reference ID:</strong> VS-{Math.floor(100000 + Math.random() * 900000)}</div>
               <div style={{ marginTop: '6px' }}><strong>Service:</strong> {formData.service}</div>
-              <div style={{ marginTop: '6px' }}><strong>Email Confirmation:</strong> Sent to {formData.email}</div>
+              <div style={{ marginTop: '6px' }}><strong>Confirmation Sent To:</strong> {formData.email}</div>
             </div>
             <button className="btn btn-primary" onClick={handleReset}>
               Done & Return to Site
