@@ -35,13 +35,18 @@ export default function Header({ activePage, setActivePage, openConsultation }) 
 
       <header className="site-header">
         <div className="container nav-wrap">
-          {/* Brand Logo */}
-          <a href="#home" className="logo" onClick={(e) => { e.preventDefault(); handleNavClick('home'); }}>
-            <div className="logo-symbol">₹</div>
-            <div className="logo-text">
-              <span>FINANCE • TAX • ADVISORY</span>
-              Vittiya Salakhaar
-            </div>
+          {/* Brand Logo with Official Image */}
+          <a
+            href="#home"
+            className="logo-link"
+            onClick={(e) => { e.preventDefault(); handleNavClick('home'); }}
+            aria-label="Vittiya Salakhaar Home"
+          >
+            <img
+              src="/logo.png"
+              alt="Vittiya Salakhaar - Finance, Tax, Advisory"
+              className="header-logo-img"
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -87,13 +92,11 @@ export default function Header({ activePage, setActivePage, openConsultation }) 
         {/* Mobile Drawer */}
         <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
           <div className="drawer-header">
-            <div className="logo" style={{ fontSize: '18px' }}>
-              <div className="logo-symbol" style={{ width: '36px', height: '36px', fontSize: '17px' }}>₹</div>
-              <div className="logo-text">
-                <span>FINANCE • TAX</span>
-                Vittiya Salakhaar
-              </div>
-            </div>
+            <img
+              src="/logo.png"
+              alt="Vittiya Salakhaar"
+              style={{ height: '38px', width: 'auto', objectFit: 'contain' }}
+            />
             <button onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--muted)' }}>
               <X size={22} />
             </button>

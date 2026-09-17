@@ -10,19 +10,19 @@ export default function Footer({ setActivePage, openConsultation }) {
     <footer className="site-footer">
       <div className="container">
         <div className="footer-grid">
-          {/* Brand Col */}
+          {/* Brand Col with Official Logo */}
           <div className="footer-col">
-            <div className="logo" style={{ color: '#ffffff' }}>
-              <div className="logo-symbol">₹</div>
-              <div className="logo-text">
-                <span style={{ color: 'var(--gold)' }}>FINANCE • TAX • ADVISORY</span>
-                Vittiya Salakhaar
-              </div>
+            <div className="footer-logo-box">
+              <img
+                src="/logo.png"
+                alt="Vittiya Salakhaar - Finance, Tax, Advisory"
+                className="footer-logo-img"
+              />
             </div>
             <p style={{ marginTop: '16px', fontSize: '14px', color: '#94a3b8', maxWidth: '300px' }}>
               Your Digital Finance Companion for Tax, Finance & Business.
             </p>
-            <p style={{ marginTop: '10px', fontSize: '13px', color: 'var(--gold)' }}>
+            <p style={{ marginTop: '10px', fontSize: '13px', color: 'var(--gold)', fontWeight: 700 }}>
               Learn. Calculate. Plan. Get Expert Support.
             </p>
           </div>
