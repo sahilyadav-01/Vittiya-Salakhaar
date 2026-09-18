@@ -1521,8 +1521,8 @@ footer.site-footer {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.3fr 0.9fr 0.9fr 0.9fr 1.1fr;
+  gap: 36px;
   margin-bottom: 60px;
 }
 

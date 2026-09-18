@@ -63,6 +63,38 @@ export default function Footer({ setActivePage, openConsultation }) {
               <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Refund Policy: Standard professional fee refund guidelines apply.'); }}>Refund Policy</a></li>
             </ul>
           </div>
+
+          {/* Contact & Support */}
+          <div className="footer-col">
+            <h4>Get in Touch</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div>
+                <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.5px', color: 'var(--gold)', fontWeight: 700, display: 'block' }}>
+                  Helpline / WhatsApp
+                </span>
+                <a
+                  href="tel:+917042686395"
+                  style={{ color: '#ffffff', fontWeight: 600, fontSize: '14px', display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '3px' }}
+                >
+                  📞 +91 70426 86395
+                </a>
+              </div>
+              <div>
+                <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.5px', color: 'var(--gold)', fontWeight: 700, display: 'block' }}>
+                  Official Email
+                </span>
+                <a
+                  href="mailto:Queries@vittiyasalaahkar.com"
+                  style={{ color: '#ffffff', fontSize: '13px', wordBreak: 'break-all', display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '3px' }}
+                >
+                  ✉️ Queries@vittiyasalaahkar.com
+                </a>
+              </div>
+              <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '2px', lineHeight: 1.4 }}>
+                🕒 Mon – Sat: 9:30 AM – 7:00 PM IST
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Mandatory Statutory Disclaimer Box */}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, ArrowRight, PhoneCall, ShieldCheck, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowRight, PhoneCall, Phone, Mail, ShieldCheck, Sparkles } from 'lucide-react';
 
 export default function Header({ activePage, setActivePage, openConsultation }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,17 +20,18 @@ export default function Header({ activePage, setActivePage, openConsultation }) 
 
   return (
     <>
-      {/* Top Announcement Bar */}
+      {/* Top Announcement Bar with Helpline & Email */}
       <div className="announcement-bar">
-        <span className="announcement-badge">Updated 2025-26</span>
-        <span>Income Tax Slab Revisions & Standard Deduction (₹75,000) Active in Tax Calculators.</span>
-        <a
-          href="#tools"
-          onClick={(e) => { e.preventDefault(); handleNavClick('tools'); }}
-          style={{ color: 'var(--gold)', textDecoration: 'underline', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '3px' }}
-        >
-          Compare Regimes <ArrowRight size={12} />
+        <span className="announcement-badge">Helpline</span>
+        <a href="tel:+917042686395" style={{ color: '#ffffff', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+          <Phone size={12} color="var(--gold)" /> +91 70426 86395
         </a>
+        <span style={{ opacity: 0.4, margin: '0 8px' }}>|</span>
+        <a href="mailto:Queries@vittiyasalaahkar.com" style={{ color: 'var(--gold)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+          <Mail size={12} /> Queries@vittiyasalaahkar.com
+        </a>
+        <span style={{ opacity: 0.4, margin: '0 8px' }}>•</span>
+        <span>FY 2025-26 Tax Slabs & ₹75k Std Deduction Active</span>
       </div>
 
       <header className="site-header">
@@ -119,6 +120,15 @@ export default function Header({ activePage, setActivePage, openConsultation }) 
           </nav>
 
           <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ background: 'var(--navy-light)', border: '1px solid var(--line)', borderRadius: 'var(--radius-sm)', padding: '12px', fontSize: '13px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <a href="tel:+917042686395" style={{ color: '#ffffff', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 600 }}>
+                <Phone size={14} color="var(--gold)" /> +91 70426 86395
+              </a>
+              <a href="mailto:Queries@vittiyasalaahkar.com" style={{ color: 'var(--gold)', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', wordBreak: 'break-all' }}>
+                <Mail size={14} /> Queries@vittiyasalaahkar.com
+              </a>
+            </div>
+
             <button
               className="btn btn-gold"
               onClick={() => {
