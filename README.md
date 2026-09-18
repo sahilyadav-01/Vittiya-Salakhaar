@@ -16,6 +16,8 @@
 - **Project**: [Vittiya Salakhaar](https://github.com/sahilyadav-01/Vittiya-Salakhaar)
 - **Role**: Lead Full-Stack & Fintech Engineer
 - **Specialization**: Indian Taxation Systems, Accounting Infrastructure, Financial Calculations & Modern Web Applications
+- **Official Support Email**: [Queries@vittiyasalaahkar.com](mailto:Queries@vittiyasalaahkar.com)
+- **Helpline / WhatsApp**: [+91 70426 86395](tel:+917042686395)
 
 ---
 
