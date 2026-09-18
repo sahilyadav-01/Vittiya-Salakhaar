@@ -364,6 +364,70 @@ export default function AboutPricingPage({ openConsultation, showToast }) {
             </p>
           </div>
 
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '20px',
+            maxWidth: '780px',
+            margin: '0 auto 30px auto'
+          }}>
+            {/* Phone & WhatsApp Card */}
+            <div className="card" style={{ padding: '20px 24px', display: 'flex', alignItems: 'center', gap: '16px', background: '#ffffff' }}>
+              <div style={{
+                width: '46px',
+                height: '46px',
+                borderRadius: '12px',
+                background: 'var(--gold-soft)',
+                color: 'var(--navy)',
+                display: 'grid',
+                placeItems: 'center',
+                flexShrink: 0
+              }}>
+                <Phone size={22} color="var(--gold-dark)" />
+              </div>
+              <div>
+                <div style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--muted)', letterSpacing: '0.5px' }}>
+                  Call / WhatsApp Helpline
+                </div>
+                <a
+                  href="tel:+917042686395"
+                  style={{ fontSize: '16px', fontWeight: 800, color: 'var(--navy)', display: 'block', marginTop: '2px' }}
+                >
+                  +91 70426 86395
+                </a>
+                <span style={{ fontSize: '11.5px', color: 'var(--green)', fontWeight: 600 }}>Mon – Sat (9:30 AM – 7:00 PM)</span>
+              </div>
+            </div>
+
+            {/* Email Card */}
+            <div className="card" style={{ padding: '20px 24px', display: 'flex', alignItems: 'center', gap: '16px', background: '#ffffff' }}>
+              <div style={{
+                width: '46px',
+                height: '46px',
+                borderRadius: '12px',
+                background: 'var(--navy-light)',
+                color: 'var(--navy)',
+                display: 'grid',
+                placeItems: 'center',
+                flexShrink: 0
+              }}>
+                <Mail size={22} color="var(--navy)" />
+              </div>
+              <div style={{ minWidth: 0 }}>
+                <div style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--muted)', letterSpacing: '0.5px' }}>
+                  Official Email Support
+                </div>
+                <a
+                  href="mailto:Queries@vittiyasalaahkar.com"
+                  style={{ fontSize: '14px', fontWeight: 800, color: 'var(--navy)', display: 'block', marginTop: '2px', wordBreak: 'break-all' }}
+                >
+                  Queries@vittiyasalaahkar.com
+                </a>
+                <span style={{ fontSize: '11.5px', color: 'var(--muted)' }}>Direct response within 24 hours</span>
+              </div>
+            </div>
+          </div>
+
           <div style={{ maxWidth: '780px', margin: '0 auto' }}>
             {!isSubmitted ? (
               <form onSubmit={handleContactSubmit} className="card" style={{ padding: '42px', boxShadow: 'var(--shadow-lg)' }}>
