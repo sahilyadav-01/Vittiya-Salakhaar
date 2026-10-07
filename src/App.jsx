@@ -11,6 +11,7 @@ import ServicesPage from './pages/ServicesPage';
 import FinancialToolsPage from './pages/FinancialToolsPage';
 import LearnPage from './pages/LearnPage';
 import AboutPricingPage from './pages/AboutPricingPage';
+import AdminPage from './pages/AdminPage';
 
 export default function App() {
   const [activePage, setActivePage] = useState('home');
@@ -24,7 +25,7 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      if (['home', 'services', 'tools', 'learn', 'about'].includes(hash)) {
+      if (['home', 'services', 'tools', 'learn', 'about', 'admin'].includes(hash)) {
         setActivePage(hash);
       }
     };
@@ -115,17 +116,26 @@ export default function App() {
             showToast={showToast}
           />
         )}
+
+        {activePage === 'admin' && (
+          <AdminPage
+            setActivePage={navigateToPage}
+            showToast={showToast}
+          />
+        )}
       </main>
 
-      {/* Floating Quick Action Widget */}
-      <button
-        className="floating-widget-btn"
-        onClick={() => openConsultation('Floating Widget')}
-        aria-label="Book Quick Consultation"
-      >
-        <PhoneCall size={16} />
-        <span>Book Consultation</span>
-      </button>
+      {/* Floating Quick Action Widget (Hidden on Admin Portal) */}
+      {activePage !== 'admin' && (
+        <button
+          className="floating-widget-btn"
+          onClick={() => openConsultation('Floating Widget')}
+          aria-label="Book Quick Consultation"
+        >
+          <PhoneCall size={16} />
+          <span>Book Consultation</span>
+        </button>
+      )}
 
       {/* Global Persistent Footer */}
       <Footer

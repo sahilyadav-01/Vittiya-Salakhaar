@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BookOpen,
   Search,
@@ -10,14 +10,24 @@ import {
   FileText,
   Tag
 } from 'lucide-react';
-import { articlesData } from '../data/articlesData';
 import { dictionaryData } from '../data/dictionaryData';
-import { updatesData } from '../data/updatesData';
+import { getArticles, getUpdates } from '../data/adminStore';
 
 export default function LearnPage({ onSelectArticle, showToast }) {
   const [selectedTopicCat, setSelectedTopicCat] = useState('All');
   const [dictSearch, setDictSearch] = useState('');
   const [selectedGroup, setSelectedGroup] = useState('All');
+  const [articlesList, setArticlesList] = useState(getArticles());
+  const [updatesList, setUpdatesList] = useState(getUpdates());
+
+  useEffect(() => {
+    const handleStoreUpdate = () => {
+      setArticlesList(getArticles());
+      setUpdatesList(getUpdates());
+    };
+    window.addEventListener('vs_store_updated', handleStoreUpdate);
+    return () => window.removeEventListener('vs_store_updated', handleStoreUpdate);
+  }, []);
 
   const topicCategories = [
     'All',
@@ -30,8 +40,8 @@ export default function LearnPage({ onSelectArticle, showToast }) {
   ];
 
   const filteredArticles = selectedTopicCat === 'All'
-    ? articlesData
-    : articlesData.filter(a => a.category === selectedTopicCat);
+    ? articlesList
+    : articlesList.filter(a => a.category === selectedTopicCat);
 
   // Grouped Dictionary Terms
   const filteredDict = dictionaryData.filter(item => {
@@ -276,7 +286,7 @@ export default function LearnPage({ onSelectArticle, showToast }) {
           </div>
 
           <div className="grid-3">
-            {updatesData.map((update) => (
+            {updatesList.map((update) => (
               <div key={update.id} className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>

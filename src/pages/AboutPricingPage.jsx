@@ -7,7 +7,7 @@ import {
   CheckCircle2,
   HelpCircle,
   PhoneCall,
-  Phone,
+  Calendar,
   Mail,
   Clock,
   Send,
@@ -18,6 +18,7 @@ import {
   ChevronUp
 } from 'lucide-react';
 import { pricingData } from '../data/servicesData';
+import { saveLead } from '../data/adminStore';
 
 export default function AboutPricingPage({ openConsultation, showToast }) {
   const [activePricingTab, setActivePricingTab] = useState('tax');
@@ -35,6 +36,15 @@ export default function AboutPricingPage({ openConsultation, showToast }) {
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
+    saveLead({
+      name: contactForm.name,
+      email: contactForm.email,
+      phone: contactForm.phone,
+      service: contactForm.requirement,
+      note: contactForm.message,
+      type: 'Contact Enquiry',
+      source: 'About & Pricing Form'
+    });
     setIsSubmitted(true);
     showToast('Enquiry received! Our advisor will connect with you within 24 business hours.');
   };
@@ -371,7 +381,7 @@ export default function AboutPricingPage({ openConsultation, showToast }) {
             maxWidth: '780px',
             margin: '0 auto 30px auto'
           }}>
-            {/* Phone & WhatsApp Card */}
+            {/* Digital Advisory Booking Card */}
             <div className="card" style={{ padding: '20px 24px', display: 'flex', alignItems: 'center', gap: '16px', background: '#ffffff' }}>
               <div style={{
                 width: '46px',
@@ -383,19 +393,32 @@ export default function AboutPricingPage({ openConsultation, showToast }) {
                 placeItems: 'center',
                 flexShrink: 0
               }}>
-                <Phone size={22} color="var(--gold-dark)" />
+                <Calendar size={22} color="var(--gold-dark)" />
               </div>
-              <div>
+              <div style={{ flex: 1 }}>
                 <div style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--muted)', letterSpacing: '0.5px' }}>
-                  Call / WhatsApp Helpline
+                  Online Advisory Session
                 </div>
-                <a
-                  href="tel:+917042686395"
-                  style={{ fontSize: '16px', fontWeight: 800, color: 'var(--navy)', display: 'block', marginTop: '2px' }}
+                <button
+                  onClick={() => openConsultation('About Contact Section')}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    padding: 0,
+                    fontSize: '15px',
+                    fontWeight: 800,
+                    color: 'var(--navy)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    cursor: 'pointer',
+                    marginTop: '2px',
+                    textAlign: 'left'
+                  }}
                 >
-                  +91 70426 86395
-                </a>
-                <span style={{ fontSize: '11.5px', color: 'var(--green)', fontWeight: 600 }}>Mon – Sat (9:30 AM – 7:00 PM)</span>
+                  Book 1-on-1 Consultation →
+                </button>
+                <div style={{ fontSize: '11.5px', color: 'var(--green)', fontWeight: 600 }}>Virtual Advisory via Google Meet</div>
               </div>
             </div>
 

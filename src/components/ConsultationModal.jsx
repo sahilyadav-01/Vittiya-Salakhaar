@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { X, CheckCircle2, Calendar, Clock, ShieldCheck, Sparkles, User, Mail, Phone } from 'lucide-react';
+import { saveLead } from '../data/adminStore';
 
 export default function ConsultationModal({ isOpen, onClose, initialService = 'Income Tax' }) {
   const [step, setStep] = useState(1);
+  const [bookingRef, setBookingRef] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,6 +19,12 @@ export default function ConsultationModal({ isOpen, onClose, initialService = 'I
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const newLead = saveLead({
+      ...formData,
+      type: 'Consultation Booking',
+      source: 'Website Booking Modal'
+    });
+    setBookingRef(newLead.id);
     setStep(2);
   };
 
@@ -180,7 +188,7 @@ export default function ConsultationModal({ isOpen, onClose, initialService = 'I
               Thank you, <strong>{formData.name}</strong>. Our finance advisor will contact you on <strong>{formData.phone}</strong> for your <strong>{formData.service}</strong> consultation scheduled for <strong>{formData.date}</strong> ({formData.slot}).
             </p>
             <div style={{ background: 'var(--surface-alt)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)', padding: '20px', marginBottom: '24px', textAlign: 'left', fontSize: '13.5px' }}>
-              <div><strong>Reference ID:</strong> VS-{Math.floor(100000 + Math.random() * 900000)}</div>
+              <div><strong>Reference ID:</strong> {bookingRef || `VS-${Math.floor(100000 + Math.random() * 900000)}`}</div>
               <div style={{ marginTop: '6px' }}><strong>Service:</strong> {formData.service}</div>
               <div style={{ marginTop: '6px' }}><strong>Confirmation Sent To:</strong> {formData.email}</div>
             </div>

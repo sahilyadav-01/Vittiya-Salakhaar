@@ -55,12 +55,13 @@ export default function Footer({ setActivePage, openConsultation }) {
 
           {/* Legal & Governance */}
           <div className="footer-col">
-            <h4>Legal & Policies</h4>
+            <h4>Legal & Governance</h4>
             <ul>
               <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Privacy Policy: Vittiya Salaahkaar is committed to 100% data confidentiality and statutory compliance under Indian IT regulations.'); }}>Privacy Policy</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Terms of Service: All professional engagements are executed under mutual engagement letters.'); }}>Terms of Service</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Disclaimer: Informational tools and resources are estimates for educational purposes.'); }}>Disclaimer</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Refund Policy: Standard professional fee refund guidelines apply.'); }}>Refund Policy</a></li>
+              <li><a href="#admin" onClick={(e) => { e.preventDefault(); handleNav('admin'); }} style={{ color: 'var(--gold)' }}>🔐 Admin Portal</a></li>
             </ul>
           </div>
 
@@ -68,17 +69,6 @@ export default function Footer({ setActivePage, openConsultation }) {
           <div className="footer-col">
             <h4>Get in Touch</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <div>
-                <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.5px', color: 'var(--gold)', fontWeight: 700, display: 'block' }}>
-                  Helpline / WhatsApp
-                </span>
-                <a
-                  href="tel:+917042686395"
-                  style={{ color: '#ffffff', fontWeight: 600, fontSize: '14px', display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '3px' }}
-                >
-                  📞 +91 70426 86395
-                </a>
-              </div>
               <div>
                 <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.5px', color: 'var(--gold)', fontWeight: 700, display: 'block' }}>
                   Official Email
@@ -92,6 +82,15 @@ export default function Footer({ setActivePage, openConsultation }) {
               </div>
               <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '2px', lineHeight: 1.4 }}>
                 🕒 Mon – Sat: 9:30 AM – 7:00 PM IST
+              </div>
+              <div style={{ marginTop: '4px' }}>
+                <button
+                  className="btn btn-gold btn-sm"
+                  onClick={() => openConsultation('Footer Contact')}
+                  style={{ fontSize: '12px', padding: '7px 14px', width: '100%', justifyContent: 'center' }}
+                >
+                  Book Online Advisory
+                </button>
               </div>
             </div>
           </div>
