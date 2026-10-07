@@ -61,7 +61,6 @@ export default function Footer({ setActivePage, openConsultation }) {
               <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Terms of Service: All professional engagements are executed under mutual engagement letters.'); }}>Terms of Service</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Disclaimer: Informational tools and resources are estimates for educational purposes.'); }}>Disclaimer</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Refund Policy: Standard professional fee refund guidelines apply.'); }}>Refund Policy</a></li>
-              <li><a href="#admin" onClick={(e) => { e.preventDefault(); handleNav('admin'); }} style={{ color: 'var(--gold)' }}>🔐 Admin Portal</a></li>
             </ul>
           </div>
 

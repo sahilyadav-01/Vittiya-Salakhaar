@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, ArrowRight, PhoneCall, Mail, ShieldCheck, Sparkles, Lock } from 'lucide-react';
+import { Menu, X, ArrowRight, PhoneCall, Mail, ShieldCheck, Sparkles } from 'lucide-react';
 
 export default function Header({ activePage, setActivePage, openConsultation }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,7 +20,7 @@ export default function Header({ activePage, setActivePage, openConsultation }) 
 
   return (
     <>
-      {/* Top Announcement Bar with Official Support Email & Portal Link */}
+      {/* Top Announcement Bar with Official Support Email */}
       <div className="announcement-bar">
         <span className="announcement-badge">Official</span>
         <a href="mailto:Queries@vittiyasalaahkar.com" style={{ color: '#ffffff', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontWeight: 600 }}>
@@ -28,24 +28,6 @@ export default function Header({ activePage, setActivePage, openConsultation }) 
         </a>
         <span style={{ opacity: 0.4, margin: '0 8px' }}>•</span>
         <span>FY 2025-26 Tax Slabs & ₹75k Std Deduction Active</span>
-        <span style={{ opacity: 0.4, margin: '0 8px' }}>|</span>
-        <button
-          onClick={() => handleNavClick('admin')}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: 'var(--gold)',
-            fontSize: '11.5px',
-            fontWeight: 700,
-            cursor: 'pointer',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '4px',
-            padding: 0
-          }}
-        >
-          <Lock size={11} /> Admin Portal
-        </button>
       </div>
 
       <header className="site-header">
@@ -138,12 +120,6 @@ export default function Header({ activePage, setActivePage, openConsultation }) 
               <a href="mailto:Queries@vittiyasalaahkar.com" style={{ color: 'var(--gold)', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', wordBreak: 'break-all' }}>
                 <Mail size={14} /> Queries@vittiyasalaahkar.com
               </a>
-              <button
-                onClick={() => handleNavClick('admin')}
-                style={{ background: 'none', border: 'none', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', padding: 0 }}
-              >
-                <Lock size={14} color="var(--gold)" /> Administrator Console
-              </button>
             </div>
 
             <button
