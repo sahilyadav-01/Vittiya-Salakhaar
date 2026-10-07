@@ -41,11 +41,11 @@ export default function Header({ activePage, setActivePage, openConsultation }) 
             href="#home"
             className="logo-link"
             onClick={(e) => { e.preventDefault(); handleNavClick('home'); }}
-            aria-label="Vittiya Salakhaar Home"
+            aria-label="Vittiya Salaahkaar Home"
           >
             <img
               src="/logo.png"
-              alt="Vittiya Salakhaar - Finance, Tax, Advisory"
+              alt="Vittiya Salaahkaar - Finance, Tax, Advisory"
               className="header-logo-img"
             />
           </a>
@@ -95,7 +95,7 @@ export default function Header({ activePage, setActivePage, openConsultation }) 
           <div className="drawer-header">
             <img
               src="/logo.png"
-              alt="Vittiya Salakhaar"
+              alt="Vittiya Salaahkaar"
               style={{ height: '38px', width: 'auto', objectFit: 'contain' }}
             />
             <button onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--muted)' }}>

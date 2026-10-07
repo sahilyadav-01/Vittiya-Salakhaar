@@ -15,7 +15,7 @@ export default function Footer({ setActivePage, openConsultation }) {
             <div className="footer-logo-box">
               <img
                 src="/logo.png"
-                alt="Vittiya Salakhaar - Finance, Tax, Advisory"
+                alt="Vittiya Salaahkaar - Finance, Tax, Advisory"
                 className="footer-logo-img"
               />
             </div>
@@ -57,7 +57,7 @@ export default function Footer({ setActivePage, openConsultation }) {
           <div className="footer-col">
             <h4>Legal & Policies</h4>
             <ul>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Privacy Policy: Vittiya Salakhaar is committed to 100% data confidentiality and statutory compliance under Indian IT regulations.'); }}>Privacy Policy</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Privacy Policy: Vittiya Salaahkaar is committed to 100% data confidentiality and statutory compliance under Indian IT regulations.'); }}>Privacy Policy</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Terms of Service: All professional engagements are executed under mutual engagement letters.'); }}>Terms of Service</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Disclaimer: Informational tools and resources are estimates for educational purposes.'); }}>Disclaimer</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Refund Policy: Standard professional fee refund guidelines apply.'); }}>Refund Policy</a></li>
@@ -105,7 +105,7 @@ export default function Footer({ setActivePage, openConsultation }) {
 
         {/* Bottom Bar */}
         <div className="footer-bottom">
-          <span>© 2026 Vittiya Salakhaar. All Rights Reserved.</span>
+          <span>© 2026 Vittiya Salaahkaar. All Rights Reserved.</span>
           <span className="footer-tagline-text">Empowering Indian Taxpayers, Freelancers, Startups & MSMEs.</span>
         </div>
       </div>

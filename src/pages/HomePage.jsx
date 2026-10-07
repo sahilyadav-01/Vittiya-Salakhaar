@@ -658,11 +658,11 @@ export default function HomePage({ setActivePage, openConsultation, onLaunchTool
         </div>
       </section>
 
-      {/* WHY VITTIYA SALAKHAAR? */}
+      {/* WHY VITTIYA SALAAHKAAR? */}
       <section className="section section-alt">
         <div className="container center-text">
           <div className="eyebrow">Our Philosophy</div>
-          <h2>Why Vittiya Salakhaar?</h2>
+          <h2>Why Vittiya Salaahkaar?</h2>
           <p className="lead">
             Built on integrity, transparency, and a long-term commitment to your financial peace of mind.
           </p>
@@ -699,7 +699,7 @@ export default function HomePage({ setActivePage, openConsultation, onLaunchTool
           <div className="eyebrow eyebrow-dark">Start With Confidence</div>
           <h2>Your Finance. Your Tax. Your Growth.</h2>
           <p className="lead" style={{ margin: '0 auto 34px' }}>
-            Whether you want to learn something, calculate something or get professional help, start with Vittiya Salakhaar.
+            Whether you want to learn something, calculate something or get professional help, start with Vittiya Salaahkaar.
           </p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <button className="btn btn-gold" onClick={() => handleNavigate('tools')}>

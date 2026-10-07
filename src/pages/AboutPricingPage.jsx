@@ -74,7 +74,7 @@ export default function AboutPricingPage({ openConsultation, showToast }) {
       a: "Key requirements include: PAN card of the entity/proprietor, Aadhaar card, photograph, proof of business address (Electricity bill / Rent agreement + NOC), and bank account proof (Cancelled cheque / Bank statement)."
     },
     {
-      q: "How does Vittiya Salakhaar handle bookkeeping and accounting data confidentiality?",
+      q: "How does Vittiya Salaahkaar handle bookkeeping and accounting data confidentiality?",
       a: "We execute formal Non-Disclosure Agreements (NDAs), use enterprise-grade cloud accounting platforms with 256-bit encryption, and enforce strict role-based access control. Your financial records are never shared with third parties."
     },
     {
@@ -93,11 +93,11 @@ export default function AboutPricingPage({ openConsultation, showToast }) {
       <section className="hero" style={{ padding: '80px 0 65px' }}>
         <div className="container center-text">
           <div className="eyebrow">
-            <Sparkles size={14} /> About Vittiya Salakhaar
+            <Sparkles size={14} /> About Vittiya Salaahkaar
           </div>
           <h1>Your Digital Finance Companion</h1>
           <p className="lead" style={{ margin: '0 auto 28px' }}>
-            Vittiya Salakhaar is a finance, taxation, accounting and financial knowledge platform designed to help individuals and businesses understand and manage their financial requirements.
+            Vittiya Salaahkaar is a finance, taxation, accounting and financial knowledge platform designed to help individuals and businesses understand and manage their financial requirements.
           </p>
 
           <div style={{

@@ -1,4 +1,4 @@
-# Vittiya Salakhaar — Your Digital Finance Companion
+# Vittiya Salaahkaar — Your Digital Finance Companion
 
 > **Understand. Calculate. Plan. Grow.**  
 > Simple financial tools, practical financial knowledge, and professional finance, tax, and accounting support — all in one place.
@@ -13,7 +13,7 @@
 ## 👨‍💻 Developer & Author
 
 - **Developer**: **Sahil Yadav** ([@sahilyadav-01](https://github.com/sahilyadav-01))
-- **Project**: [Vittiya Salakhaar](https://github.com/sahilyadav-01/Vittiya-Salakhaar)
+- **Project**: [Vittiya Salaahkaar](https://github.com/sahilyadav-01/Vittiya-Salakhaar)
 - **Role**: Lead Full-Stack & Fintech Engineer
 - **Specialization**: Indian Taxation Systems, Accounting Infrastructure, Financial Calculations & Modern Web Applications
 - **Official Support Email**: [Queries@vittiyasalaahkar.com](mailto:Queries@vittiyasalaahkar.com)
@@ -23,7 +23,7 @@
 
 ## 🌟 Platform Overview
 
-**Vittiya Salakhaar** is an Indian fintech and taxation platform designed to help individuals, freelancers, startups, and MSMEs understand and manage their financial requirements. 
+**Vittiya Salaahkaar** is an Indian fintech and taxation platform designed to help individuals, freelancers, startups, and MSMEs understand and manage their financial requirements. 
 
 The platform is founded on three core pillars:
 1. **📚 Vittiya Gyaan (Learn)**: Jargon-free financial guides, explainers, regulatory updates, and a searchable A–Z financial dictionary.
@@ -39,7 +39,7 @@ The platform is founded on three core pillars:
 - **Interactive Financial Health Snapshot Card**: Live switcher between **Personal Snapshot** (Savings, Debt, Emergency, Tax) and **Business View** (Gross Margin, DSO, Runway) with dynamic animated bars.
 - **What Do You Need Today?**: Direct entry points for Learning, Calculating, and Consulting.
 - **Popular Tools Teaser**: 1-click launchers for popular calculators.
-- **Why Vittiya Salakhaar?**: 5 values (Practical, Transparent, Digital, Professional, Long-Term).
+- **Why Vittiya Salaahkaar?**: 5 values (Practical, Transparent, Digital, Professional, Long-Term).
 
 ### 2. Services (`#services`)
 Comprehensive deliverables, itemized checklists, and 1-click consultation booking for 6 core practice areas:

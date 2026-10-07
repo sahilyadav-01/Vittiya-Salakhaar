@@ -306,7 +306,7 @@ export default function LearnPage({ onSelectArticle, showToast }) {
             <strong style={{ color: 'var(--navy)', display: 'block', marginBottom: '6px' }}>
               Educational Content Disclaimer:
             </strong>
-            Financial, tax and investment content published on Vittiya Salakhaar is intended for general educational and informational purposes. Tax laws, regulations and financial products may change. Readers should consider their individual circumstances and obtain appropriate professional advice where necessary.
+            Financial, tax and investment content published on Vittiya Salaahkaar is intended for general educational and informational purposes. Tax laws, regulations and financial products may change. Readers should consider their individual circumstances and obtain appropriate professional advice where necessary.
           </div>
         </div>
       </section>

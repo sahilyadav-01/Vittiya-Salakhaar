@@ -24,7 +24,7 @@ export default function ServicesPage({ openConsultation }) {
           </div>
           <h1>Finance & Tax Services</h1>
           <p className="lead" style={{ margin: '0 auto 28px' }}>
-            Professional Support for Every Stage of Your Financial Journey. From personal tax filing to ongoing business finance management, Vittiya Salakhaar provides practical support designed around your requirements.
+            Professional Support for Every Stage of Your Financial Journey. From personal tax filing to ongoing business finance management, Vittiya Salaahkaar provides practical support designed around your requirements.
           </p>
           <button className="btn btn-gold" onClick={() => openConsultation('General Advisory')}>
             <PhoneCall size={16} /> Book an Initial Consultation

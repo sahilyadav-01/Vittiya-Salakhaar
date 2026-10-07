@@ -88,7 +88,7 @@ export default function ArticleModal({ article, onClose, onShare }) {
           alignItems: 'center'
         }}>
           <div style={{ fontSize: '12.5px', color: 'var(--muted)' }}>
-            Educational guidance published by Vittiya Salakhaar Research Team.
+            Educational guidance published by Vittiya Salaahkaar Research Team.
           </div>
           <button
             className="btn btn-light btn-sm"
