@@ -125,21 +125,15 @@ export default function AdminPage({ setActivePage, showToast }) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (passcode === settings.adminPasscode || passcode === 'admin123' || passcode === '1234') {
+    const validPasscode = settings.adminPasscode || 'admin123';
+    if (passcode === validPasscode) {
       setIsAuthenticated(true);
       setAdminAuthenticated(true);
       setLoginError('');
       showToast('Welcome, Administrator! Authenticated successfully.');
     } else {
-      setLoginError('Invalid Administrator Passcode. Please try again.');
+      setLoginError('Invalid Administrator Passcode. Please check your credentials and try again.');
     }
-  };
-
-  const handleQuickDemoLogin = () => {
-    setIsAuthenticated(true);
-    setAdminAuthenticated(true);
-    setLoginError('');
-    showToast('Authenticated via One-Click Administrator Access.');
   };
 
   const handleLogout = () => {
@@ -323,22 +317,19 @@ export default function AdminPage({ setActivePage, showToast }) {
           )}
 
           <form onSubmit={handleLogin}>
-            <div style={{ marginBottom: '20px' }}>
-              <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, color: 'var(--navy)', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+            <div style={{ marginBottom: '24px' }}>
+              <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, color: 'var(--navy)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 Administrator Passcode
               </label>
               <input
                 type="password"
                 className="form-input"
-                placeholder="Enter passcode (default: admin123)"
+                placeholder="Enter your administrator passcode"
                 value={passcode}
                 onChange={(e) => setPasscode(e.target.value)}
                 autoFocus
                 required
               />
-              <span style={{ fontSize: '11.5px', color: 'var(--muted)', marginTop: '4px', display: 'block' }}>
-                Default Access Code: <code>admin123</code>
-              </span>
             </div>
 
             <button type="submit" className="btn btn-gold" style={{ width: '100%', justifyContent: 'center', fontWeight: 700, padding: '12px' }}>
@@ -346,16 +337,7 @@ export default function AdminPage({ setActivePage, showToast }) {
             </button>
           </form>
 
-          <div style={{ marginTop: '16px', paddingTop: '16px', borderTop: '1px solid var(--line)', textAlign: 'center' }}>
-            <button
-              onClick={handleQuickDemoLogin}
-              style={{ background: 'var(--navy-light)', border: '1px solid var(--line)', borderRadius: '8px', padding: '8px 14px', fontSize: '12.5px', fontWeight: 600, color: 'var(--navy)', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '6px', width: '100%', justifyContent: 'center' }}
-            >
-              <Sparkles size={14} color="var(--gold-dark)" /> One-Click Instant Access
-            </button>
-          </div>
-
-          <div style={{ marginTop: '20px', textAlign: 'center' }}>
+          <div style={{ marginTop: '24px', textAlign: 'center' }}>
             <button
               onClick={() => setActivePage('home')}
               style={{ background: 'none', border: 'none', color: 'var(--muted)', fontSize: '12.5px', cursor: 'pointer', textDecoration: 'underline' }}
