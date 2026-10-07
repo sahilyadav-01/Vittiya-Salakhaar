@@ -87,7 +87,7 @@ const defaultLeads = [
 ];
 
 const defaultSettings = {
-  adminPasscode: 'admin123',
+  adminPasscode: 'Admin@123',
   officialEmail: 'Queries@vittiyasalaahkar.com',
   workingHours: 'Mon – Sat: 9:30 AM – 7:00 PM IST',
   statutoryDisclaimer: 'All financial guidance and tax filings are subject to statutory compliance under Indian laws.'
@@ -258,6 +258,11 @@ export function getAdminSettings() {
   if (!settings) {
     safeSet(SETTINGS_STORAGE_KEY, defaultSettings);
     return defaultSettings;
+  }
+  // Automatically migrate legacy default passcode to Admin@123
+  if (settings.adminPasscode === 'admin123') {
+    settings.adminPasscode = 'Admin@123';
+    safeSet(SETTINGS_STORAGE_KEY, settings);
   }
   return { ...defaultSettings, ...settings };
 }
