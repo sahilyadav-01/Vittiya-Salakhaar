@@ -1470,6 +1470,7 @@ export default function AdminPage({ setActivePage, showToast }) {
                     <option value="Investments">Investments</option>
                     <option value="Personal Finance">Personal Finance</option>
                     <option value="Business Finance">Business Finance</option>
+                    <option value="Accounting">Accounting</option>
                   </select>
                 </div>
                 <div>

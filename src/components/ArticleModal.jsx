@@ -39,7 +39,7 @@ export default function ArticleModal({ article, onClose, onShare }) {
         </div>
 
         <div className="article-body-content" style={{ fontSize: '15px', lineHeight: '1.75', color: 'var(--ink-secondary)' }}>
-          {article.content.split('\n\n').map((paragraph, idx) => {
+          {(article.content || '').split('\n\n').map((paragraph, idx) => {
             if (paragraph.startsWith('### ')) {
               return (
                 <h3 key={idx} style={{ marginTop: '24px', marginBottom: '10px', color: 'var(--navy)', fontSize: '19px' }}>
