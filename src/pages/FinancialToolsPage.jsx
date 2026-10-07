@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Calculator,
   TrendingUp,
@@ -16,9 +16,58 @@ import {
   Briefcase
 } from 'lucide-react';
 
-export default function FinancialToolsPage({ openConsultation, initialTab = 'all' }) {
+const allTools = [
+  { id: 'sip', title: 'SIP Calculator', cat: 'investment', icon: <TrendingUp size={18} /> },
+  { id: 'tax', title: 'Income Tax Calculator', cat: 'tax', icon: <Calculator size={18} /> },
+  { id: 'emi', title: 'EMI Calculator', cat: 'loans', icon: <Percent size={18} /> },
+  { id: 'gst', title: 'GST Calculator', cat: 'tax', icon: <Receipt size={18} /> },
+  { id: 'lumpsum', title: 'Lumpsum Calculator', cat: 'investment', icon: <DollarSign size={18} /> },
+  { id: 'cagr', title: 'CAGR Calculator', cat: 'investment', icon: <TrendingUp size={18} /> },
+  { id: 'retirement', title: 'Retirement Calculator', cat: 'personal', icon: <Clock size={18} /> },
+  { id: 'networth', title: 'Net Worth Calculator', cat: 'personal', icon: <PieChart size={18} /> },
+  { id: 'emergency', title: 'Emergency Fund', cat: 'personal', icon: <ShieldAlert size={18} /> },
+  { id: 'inflation', title: 'Inflation Calculator', cat: 'personal', icon: <TrendingUp size={18} /> },
+  { id: 'goal', title: 'Savings Goal Calculator', cat: 'personal', icon: <CheckCircle2 size={18} /> },
+  { id: 'health-check', title: 'Personal Health Check', cat: 'health', icon: <Sparkles size={18} /> },
+  { id: 'biz-health', title: 'Business Health Check', cat: 'health', icon: <Briefcase size={18} /> }
+];
+
+export default function FinancialToolsPage({ openConsultation, initialTab = 'all', defaultToolId = 'sip', showToast }) {
   const [activeCategory, setActiveCategory] = useState(initialTab);
-  const [activeToolId, setActiveToolId] = useState('sip');
+  const [activeToolId, setActiveToolId] = useState(defaultToolId || 'sip');
+
+  // Synchronize when defaultToolId changes (e.g. from Home page launcher)
+  useEffect(() => {
+    if (defaultToolId) {
+      setActiveToolId(defaultToolId);
+      const tool = allTools.find(t => t.id === defaultToolId);
+      if (tool && activeCategory !== 'all' && tool.cat !== activeCategory) {
+        setActiveCategory(tool.cat);
+      }
+    }
+  }, [defaultToolId]);
+
+  // Handle switching category tabs - ensures activeToolId belongs to newly selected category
+  const handleCategoryChange = (newCat) => {
+    setActiveCategory(newCat);
+    if (newCat !== 'all') {
+      const toolsInCat = allTools.filter(t => t.cat === newCat);
+      if (!toolsInCat.some(t => t.id === activeToolId)) {
+        if (toolsInCat.length > 0) {
+          setActiveToolId(toolsInCat[0].id);
+        }
+      }
+    }
+  };
+
+  // Handle clicking a specific tool selector pill
+  const handleToolSelect = (toolId) => {
+    setActiveToolId(toolId);
+    const tool = allTools.find(t => t.id === toolId);
+    if (tool && activeCategory !== 'all' && tool.cat !== activeCategory) {
+      setActiveCategory(tool.cat);
+    }
+  };
 
   // SIP Calculator State
   const [sipMonthly, setSipMonthly] = useState(15000);
@@ -306,22 +355,6 @@ export default function FinancialToolsPage({ openConsultation, initialTab = 'all
     return { grossProfit, netProfit, healthScore, isGoodDSO, isHealthyCash };
   }, [bizRevenue, bizGrossMargin, bizNetMargin, bizDebtorDays, bizCashFlowStatus]);
 
-  const allTools = [
-    { id: 'sip', title: 'SIP Calculator', cat: 'investment', icon: <TrendingUp size={18} /> },
-    { id: 'tax', title: 'Income Tax Calculator', cat: 'tax', icon: <Calculator size={18} /> },
-    { id: 'emi', title: 'EMI Calculator', cat: 'loans', icon: <Percent size={18} /> },
-    { id: 'gst', title: 'GST Calculator', cat: 'tax', icon: <Receipt size={18} /> },
-    { id: 'lumpsum', title: 'Lumpsum Calculator', cat: 'investment', icon: <DollarSign size={18} /> },
-    { id: 'cagr', title: 'CAGR Calculator', cat: 'investment', icon: <TrendingUp size={18} /> },
-    { id: 'retirement', title: 'Retirement Calculator', cat: 'personal', icon: <Clock size={18} /> },
-    { id: 'networth', title: 'Net Worth Calculator', cat: 'personal', icon: <PieChart size={18} /> },
-    { id: 'emergency', title: 'Emergency Fund', cat: 'personal', icon: <ShieldAlert size={18} /> },
-    { id: 'inflation', title: 'Inflation Calculator', cat: 'personal', icon: <TrendingUp size={18} /> },
-    { id: 'goal', title: 'Savings Goal Calculator', cat: 'personal', icon: <CheckCircle2 size={18} /> },
-    { id: 'health-check', title: 'Personal Health Check', cat: 'health', icon: <Sparkles size={18} /> },
-    { id: 'biz-health', title: 'Business Health Check', cat: 'health', icon: <Briefcase size={18} /> }
-  ];
-
   const filteredTools = allTools.filter(t => activeCategory === 'all' || t.cat === activeCategory);
 
   return (
@@ -341,37 +374,37 @@ export default function FinancialToolsPage({ openConsultation, initialTab = 'all
           <div className="calc-tabs-bar">
             <button
               className={`calc-tab ${activeCategory === 'all' ? 'active' : ''}`}
-              onClick={() => setActiveCategory('all')}
+              onClick={() => handleCategoryChange('all')}
             >
               All Tools (13)
             </button>
             <button
               className={`calc-tab ${activeCategory === 'tax' ? 'active' : ''}`}
-              onClick={() => setActiveCategory('tax')}
+              onClick={() => handleCategoryChange('tax')}
             >
               Tax Calculators
             </button>
             <button
               className={`calc-tab ${activeCategory === 'investment' ? 'active' : ''}`}
-              onClick={() => setActiveCategory('investment')}
+              onClick={() => handleCategoryChange('investment')}
             >
               Investment Calculators
             </button>
             <button
               className={`calc-tab ${activeCategory === 'loans' ? 'active' : ''}`}
-              onClick={() => setActiveCategory('loans')}
+              onClick={() => handleCategoryChange('loans')}
             >
               Loan Calculators
             </button>
             <button
               className={`calc-tab ${activeCategory === 'personal' ? 'active' : ''}`}
-              onClick={() => setActiveCategory('personal')}
+              onClick={() => handleCategoryChange('personal')}
             >
               Personal Finance
             </button>
             <button
               className={`calc-tab ${activeCategory === 'health' ? 'active' : ''}`}
-              onClick={() => setActiveCategory('health')}
+              onClick={() => handleCategoryChange('health')}
             >
               Health Check Assessments
             </button>
@@ -387,7 +420,7 @@ export default function FinancialToolsPage({ openConsultation, initialTab = 'all
             {filteredTools.map((tool) => (
               <button
                 key={tool.id}
-                onClick={() => setActiveToolId(tool.id)}
+                onClick={() => handleToolSelect(tool.id)}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
