@@ -57,10 +57,10 @@ export default function Footer({ setActivePage, openConsultation }) {
           <div className="footer-col">
             <h4>Legal & Governance</h4>
             <ul>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Privacy Policy: Vittiya Salaahkaar is committed to 100% data confidentiality and statutory compliance under Indian IT regulations.'); }}>Privacy Policy</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Terms of Service: All professional engagements are executed under mutual engagement letters.'); }}>Terms of Service</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Disclaimer: Informational tools and resources are estimates for educational purposes.'); }}>Disclaimer</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); alert('Refund Policy: Standard professional fee refund guidelines apply.'); }}>Refund Policy</a></li>
+              <li><a href="#privacy" onClick={(e) => { e.preventDefault(); handleNav('privacy'); }}>Privacy Policy</a></li>
+              <li><a href="#terms" onClick={(e) => { e.preventDefault(); handleNav('terms'); }}>Terms of Service</a></li>
+              <li><a href="#disclaimer" onClick={(e) => { e.preventDefault(); handleNav('disclaimer'); }}>Statutory Disclaimer</a></li>
+              <li><a href="#refund" onClick={(e) => { e.preventDefault(); handleNav('refund'); }}>Refund & Cancellation</a></li>
             </ul>
           </div>
 
@@ -104,6 +104,13 @@ export default function Footer({ setActivePage, openConsultation }) {
         {/* Bottom Bar */}
         <div className="footer-bottom">
           <span>© 2026 Vittiya Salaahkaar. All Rights Reserved.</span>
+          <div className="footer-bottom-links" style={{ display: 'inline-flex', gap: '14px', alignItems: 'center' }}>
+            <a href="#privacy" onClick={(e) => { e.preventDefault(); handleNav('privacy'); }} style={{ color: '#94a3b8', fontSize: '13px' }}>Privacy Policy</a>
+            <span style={{ color: '#475569' }}>•</span>
+            <a href="#terms" onClick={(e) => { e.preventDefault(); handleNav('terms'); }} style={{ color: '#94a3b8', fontSize: '13px' }}>Terms of Service</a>
+            <span style={{ color: '#475569' }}>•</span>
+            <a href="#disclaimer" onClick={(e) => { e.preventDefault(); handleNav('disclaimer'); }} style={{ color: '#94a3b8', fontSize: '13px' }}>Disclaimer</a>
+          </div>
           <span className="footer-tagline-text">Empowering Indian Taxpayers, Freelancers, Startups & MSMEs.</span>
         </div>
       </div>

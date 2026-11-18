@@ -12,10 +12,12 @@ import FinancialToolsPage from './pages/FinancialToolsPage';
 import LearnPage from './pages/LearnPage';
 import AboutPricingPage from './pages/AboutPricingPage';
 import AdminPage from './pages/AdminPage';
+import LegalPage from './pages/LegalPage';
 
 export default function App() {
   const [activePage, setActivePage] = useState('home');
   const [activeToolId, setActiveToolId] = useState('sip');
+  const [legalTab, setLegalTab] = useState('privacy');
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const [consultationService, setConsultationService] = useState('Income Tax');
   const [selectedArticle, setSelectedArticle] = useState(null);
@@ -25,8 +27,16 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      if (['home', 'services', 'tools', 'learn', 'about', 'admin'].includes(hash)) {
-        setActivePage(hash);
+      const legalSubTabs = ['privacy', 'terms', 'disclaimer', 'refund'];
+      if (['home', 'services', 'tools', 'learn', 'about', 'admin', 'legal', ...legalSubTabs].includes(hash)) {
+        if (legalSubTabs.includes(hash)) {
+          setActivePage('legal');
+          setLegalTab(hash);
+        } else if (hash === 'legal') {
+          setActivePage('legal');
+        } else {
+          setActivePage(hash);
+        }
       }
     };
 
@@ -38,9 +48,20 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const navigateToPage = (pageId) => {
-    setActivePage(pageId);
-    window.location.hash = pageId;
+  const navigateToPage = (pageId, tab = null) => {
+    const legalSubTabs = ['privacy', 'terms', 'disclaimer', 'refund'];
+    if (legalSubTabs.includes(pageId)) {
+      setActivePage('legal');
+      setLegalTab(pageId);
+      window.location.hash = pageId;
+    } else if (pageId === 'legal') {
+      setActivePage('legal');
+      if (tab) setLegalTab(tab);
+      window.location.hash = tab || legalTab || 'privacy';
+    } else {
+      setActivePage(pageId);
+      window.location.hash = pageId;
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -123,6 +144,14 @@ export default function App() {
             showToast={showToast}
           />
         )}
+
+        {activePage === 'legal' && (
+          <LegalPage
+            initialTab={legalTab}
+            openConsultation={openConsultation}
+            showToast={showToast}
+          />
+        )}
       </main>
 
       {/* Floating Quick Action Widget (Hidden on Admin Portal) */}
@@ -148,6 +177,7 @@ export default function App() {
         isOpen={isConsultationOpen}
         onClose={() => setIsConsultationOpen(false)}
         initialService={consultationService}
+        navigateToPage={navigateToPage}
       />
 
       <ArticleModal

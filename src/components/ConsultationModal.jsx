@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X, CheckCircle2, Calendar, Clock, ShieldCheck, Sparkles, User, Mail, Phone } from 'lucide-react';
 import { saveLead } from '../data/adminStore';
 
-export default function ConsultationModal({ isOpen, onClose, initialService = 'Income Tax' }) {
+export default function ConsultationModal({ isOpen, onClose, initialService = 'Income Tax', navigateToPage }) {
   const [step, setStep] = useState(1);
   const [bookingRef, setBookingRef] = useState('');
   const [formData, setFormData] = useState({
@@ -165,6 +165,33 @@ export default function ConsultationModal({ isOpen, onClose, initialService = 'I
                 <button type="submit" className="btn btn-gold">
                   Confirm Consultation Slot →
                 </button>
+              </div>
+
+              <div style={{ fontSize: '11.5px', color: 'var(--muted)', marginTop: '14px', textAlign: 'center', lineHeight: 1.5 }}>
+                By booking, you acknowledge our{' '}
+                <a
+                  href="#privacy"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onClose();
+                    if (navigateToPage) navigateToPage('privacy');
+                  }}
+                  style={{ color: 'var(--gold-dark)', textDecoration: 'underline', fontWeight: 600 }}
+                >
+                  Privacy Policy
+                </a>{' '}
+                &{' '}
+                <a
+                  href="#terms"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onClose();
+                    if (navigateToPage) navigateToPage('terms');
+                  }}
+                  style={{ color: 'var(--gold-dark)', textDecoration: 'underline', fontWeight: 600 }}
+                >
+                  Terms of Service
+                </a>.
               </div>
             </form>
           </div>

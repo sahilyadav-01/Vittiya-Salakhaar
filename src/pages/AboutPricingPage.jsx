@@ -319,7 +319,10 @@ export default function AboutPricingPage({ openConsultation, showToast }) {
             <strong style={{ color: 'var(--navy)', display: 'block', marginBottom: '6px' }}>
               Pricing Terms & Conditions Note:
             </strong>
-            Prices are indicative starting prices and may vary based on the nature, complexity, transaction volume and scope of work. Government fees, statutory charges, third-party charges and applicable taxes (GST) may be additional. Services are subject to applicable laws, regulations and professional requirements.
+            Prices are indicative starting prices and may vary based on the nature, complexity, transaction volume and scope of work. Government fees, statutory charges, third-party charges and applicable taxes (GST) may be additional. Services are subject to applicable laws, regulations and professional requirements. See our complete{' '}
+            <a href="#terms" style={{ color: 'var(--navy)', textDecoration: 'underline', fontWeight: 600 }}>Terms of Service</a>{' '}
+            and{' '}
+            <a href="#refund" style={{ color: 'var(--navy)', textDecoration: 'underline', fontWeight: 600 }}>Refund & Cancellation Policy</a>.
           </div>
         </div>
       </section>

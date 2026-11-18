@@ -134,6 +134,29 @@ export default function Header({ activePage, setActivePage, openConsultation }) 
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: 'var(--muted)', justifyContent: 'center' }}>
               <ShieldCheck size={14} color="var(--green)" /> 100% Confidential & Secure
             </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '11.5px', color: 'var(--muted)' }}>
+              <a
+                href="#privacy"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick('privacy');
+                }}
+                style={{ color: 'var(--muted)', textDecoration: 'underline' }}
+              >
+                Privacy Policy
+              </a>
+              <span>•</span>
+              <a
+                href="#terms"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick('terms');
+                }}
+                style={{ color: 'var(--muted)', textDecoration: 'underline' }}
+              >
+                Terms
+              </a>
+            </div>
           </div>
         </div>
       </header>
